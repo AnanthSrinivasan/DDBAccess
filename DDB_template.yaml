@@ -1,0 +1,23 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Resources:
+  ProductCatalogTable:
+    Type: AWS::DynamoDB::Table
+    Properties: 
+      AttributeDefinitions: 
+        - 
+          AttributeName: "productId"
+          AttributeType: "S"
+        - 
+          AttributeName: "lotNumber"
+          AttributeType: "N"
+      KeySchema:
+        - 
+          AttributeName: "productId"
+          KeyType: "HASH"
+        - 
+          AttributeName: "lotNumber"
+          KeyType: "RANGE"
+      ProvisionedThroughput: 
+        ReadCapacityUnits: "5"
+        WriteCapacityUnits: "5"
+      TableName: "ProductCatalog"
